@@ -1,0 +1,17 @@
+- name: sample
+  hosts: localhost
+  connection: localhost
+  become: true
+  vars:
+    URL: google.com
+  tasks:
+    -name: print URL
+    ansible.builtin.debug:
+      msg: "{{ URL }}"
+
+
+#in ansbile we acccess varibales using {{}} and with single or the the double quates
+#only when if the values is variable or startes with a variable then we need to specify in quates
+#eg key: "{{ val }}"
+#eg key: "{{ val }}" some string after the varible
+#eg key: some string - {{ val }}  # no need to specify the quates
