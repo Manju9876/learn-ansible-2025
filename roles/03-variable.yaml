@@ -15,3 +15,26 @@
 #eg key: "{{ val }}"
 #eg key: "{{ val }}" some string after the varible
 #eg key: some string - {{ val }}  # no need to specify the quates
+
+#we can declare variable in tasks
+- name: sample
+  hosts: localhost
+  connection: localhost
+  become: true
+  tasks:
+    -name: print URL
+    ansible.builtin.debug:
+      msg: "{{ URL }}"
+    vars:
+      URL: task.google.com
+
+
+#variables can also be decrales in roles level also
+
+#we can declare variable in tasks
+- name: sample
+  hosts: localhost
+  connection: localhost
+  become: true
+  roles:
+    - demo

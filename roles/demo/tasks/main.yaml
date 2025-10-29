@@ -1,3 +1,7 @@
 - name: Print hello message
   ansible.builtin.debug:
     msg: Hellow World
+
+- name: Print URL
+  ansible.builtin.debug:
+    msg: this variables is called from teh roles {{ URL }}
