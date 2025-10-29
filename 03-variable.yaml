@@ -6,7 +6,7 @@
     URL: google.com
   tasks:
     -name: print URL
-    ansible.builtin.debug:
+     ansible.builtin.debug:
       msg: "{{ URL }}"
 
 
