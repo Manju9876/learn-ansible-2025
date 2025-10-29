@@ -7,7 +7,7 @@
   tasks:
     -name: print URL
      ansible.builtin.debug:
-      msg: "{{ URL }}"
+     msg: "{{ URL }}"
 
 
 #in ansbile we acccess varibales using {{}} and with single or the the double quates
