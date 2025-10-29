@@ -5,9 +5,9 @@
   vars:
     URL: google.com
   tasks:
-    -name: print URL
-     ansible.builtin.debug:
-     msg: "{{ URL }}"
+    - name: print URL
+      ansible.builtin.debug:
+      msg: "{{ URL }}"
 
 
 #in ansbile we acccess varibales using {{}} and with single or the the double quates
@@ -22,11 +22,11 @@
   connection: localhost
   become: true
   tasks:
-    -name: print URL
-    ansible.builtin.debug:
+    - name: print URL
+      ansible.builtin.debug:
       msg: "{{ URL }}"
-    vars:
-      URL: task.google.com
+      vars:
+       URL: task.google.com
 
 
 #variables can also be decrales in roles level also
