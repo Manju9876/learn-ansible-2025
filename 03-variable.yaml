@@ -38,3 +38,18 @@
   become: true
   roles:
     - demo
+
+#precenden in variables
+#1. command line
+#2.Task varible
+#3.role variable
+#4. play varible
+#5. default file variable
+
+- name: print a fact
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: Print a fact
+      ansible.builtin.debug:
+        msg: "{{ ansible.distribution }}"
