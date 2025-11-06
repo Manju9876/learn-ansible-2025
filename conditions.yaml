@@ -11,3 +11,5 @@
       when: x|int < 10
       ansible.builtin.debug:
         msg: "x is lesser then 10"
+
+#in conditionals ther is no need for double quates
