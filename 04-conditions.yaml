@@ -23,10 +23,10 @@
   tasks:
     - name: if apple is fruit
       when: y | true
-      ansbile.builtin.debug:
+      ansible.builtin.debug:
         msg: "apple is a fruit"
 
     - name: if apple is not a fruit
       when: not (y | false)
-      ansbile.builtin.debug:
+      ansible.builtin.debug:
         msg: "apple is not a fruit"
