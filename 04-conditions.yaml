@@ -21,10 +21,10 @@
   tasks:
     - name: if apple is fruit
       when: y | true
-      ansbile.buintin.debug:
+      ansbile.builtin.debug:
         msg: "apple is a fruit"
 
     - name: if apple is not a fruit
       when: not (y | false)
-      ansbile.buintin.debug:
+      ansbile.builtin.debug:
         msg: "apple is not a fruit"
