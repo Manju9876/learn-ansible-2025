@@ -56,9 +56,9 @@
     - name: call a varible item is fruit
       when: "{{ a }}"
       ansible.builtin.debug:
-        msg: "{{ a }}" is a fruit
+        msg: "{{ a }} is a fruit"
 
     - name: call varibale when item is vegitable
       when: "{{ b }}"
       ansible.builtin.debug:
-        msg: "{{ b }}" is a begitable
+        msg: "{{ b }} is a begitable"
