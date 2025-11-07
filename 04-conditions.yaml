@@ -27,9 +27,9 @@
     - name: if apple is fruit
       when: y | bool
       ansible.builtin.debug:
-        msg: "{{ name }}" is a fruit
+        msg: "{{ name }} is a fruit"
 
     - name: if apple is not a fruit
       when: not (y | bool)
       ansible.builtin.debug:
-        msg: "{{ name }}" is not a fruit
+        msg: "{{ name }} is not a fruit"
