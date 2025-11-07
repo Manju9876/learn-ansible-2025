@@ -20,13 +20,16 @@
 - name: boolean conditions
   hosts: localhost
   connection: local
+  args:
+    name: apple
+    y: true
   tasks:
     - name: if apple is fruit
       when: y | bool
       ansible.builtin.debug:
-        msg: "apple is a fruit"
+        msg: "{{ name }}" is a fruit
 
     - name: if apple is not a fruit
       when: not (y | bool)
       ansible.builtin.debug:
-        msg: "apple is not a fruit"
+        msg: "{{ name }}" is not a fruit
