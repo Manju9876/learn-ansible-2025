@@ -1,0 +1,12 @@
+- name: error handling
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: shell
+      ansible.builtin.shell: cat /etc/passwd | grep jhon
+      register: out
+
+    - name: print
+      ansible.builtin.debug:
+        msg: jhon user name does not exist in the system
+      when: out.stdout == ""
