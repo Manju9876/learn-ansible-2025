@@ -39,17 +39,26 @@
   roles:
     - demo
 
-#precenden in variables
+#precendens in variables
 #1. command line
 #2.Task varible
 #3.role variable
 #4. play varible
 #5. default file variable
 
-- name: print a fact
+- name: varible calling
   hosts: localhost
   connection: local
+  vars:
+    a: apple
+    b: carrot
   tasks:
-    - name: Print a fact
+    - name: call a varible item is fruit
+      when: "{{ a }}"
       ansible.builtin.debug:
-        msg: "{{ ansible_distribution }}"
+        msg: "{{ a }}" is a fruit
+
+    - name: call varibale when item is vegitable
+      when: "{{ b }}"
+      ansible.builtin.debug:
+        msg: "{{ b }}" is a begitable
