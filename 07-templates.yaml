@@ -1,0 +1,10 @@
+- name: templates
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: copy templates
+      ansible.builtin.copy:
+        src: text.txt
+        dest: /tmp/text.txt
+
+
