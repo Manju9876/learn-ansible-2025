@@ -54,11 +54,11 @@
     b: carrot
   tasks:
     - name: call a varible item is fruit
-      when: "{{ a }}"
+      when: a == "apple"
       ansible.builtin.debug:
         msg: "{{ a }} is a fruit"
 
     - name: call varibale when item is vegitable
-      when: "{{ b }}"
+      when: b == "carrot"
       ansible.builtin.debug:
         msg: "{{ b }} is a begitable"
