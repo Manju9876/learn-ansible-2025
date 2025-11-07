@@ -3,7 +3,7 @@
   connection: local
   tasks:
     - name: copy templates
-      ansible.builtin.templates:
+      ansible.builtin.template:
         src: text.txt
         dest: /tmp/text.txt
 
