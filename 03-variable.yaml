@@ -50,15 +50,20 @@
   hosts: localhost
   connection: local
   vars:
-    a: apple
-    b: carrot
+    fruits:
+      - apple
+      - banana
+      - mango
+    vegies:
+      - tomato
+      - potato
   tasks:
     - name: call a varible item is fruit
-      when: a == "apple"
+      when: item_name is fruits
       ansible.builtin.debug:
-        msg: "{{ a }} is a fruit"
+        msg: "{{ item_name }} is a fruit"
 
     - name: call varibale when item is vegitable
-      when: b == "carrot"
+      when: item_name is vegitables
       ansible.builtin.debug:
-        msg: "{{ b }} is a begitable"
+        msg: "{{ item_name }} is a begitable"
