@@ -59,11 +59,11 @@
       - potato
   tasks:
     - name: call a varible item is fruit
-      when: item_name is fruits
+      when: item_name in fruits
       ansible.builtin.debug:
         msg: "{{ item_name }} is a fruit"
 
     - name: call varibale when item is vegitable
-      when: item_name is vegitables
+      when: item_name in vegies
       ansible.builtin.debug:
         msg: "{{ item_name }} is a begitable"
