@@ -2,7 +2,7 @@
   hosts: localhost
   connection: local
   vars:
-    x= 10
+    x: 10
   tasks:
     - name: if x is grater then 10
       when: x|int > 10
