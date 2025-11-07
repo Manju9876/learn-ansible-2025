@@ -5,6 +5,7 @@
     - name: shell
       ansible.builtin.shell: cat /etc/passwd | grep jhon
       register: out
+      ignore_errors: yes
 
     - name: print
       ansible.builtin.debug:
