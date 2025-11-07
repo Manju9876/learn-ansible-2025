@@ -13,3 +13,18 @@
         msg: "x is lesser then 10"
 
 #in conditionals ther is no need for double quates
+
+
+- name: boolean conditions
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: if apple is fruit
+      when: y|true
+      ansbile.buintin.debug:
+        msg: "apple is a fruit"
+
+    - name: if apple is not a fruit
+      when: y|false
+      ansbile.buintin.debug:
+        msg: "apple is not a fruit"
