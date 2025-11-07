@@ -20,11 +20,11 @@
   connection: local
   tasks:
     - name: if apple is fruit
-      when: y|true
+      when: y | true
       ansbile.buintin.debug:
         msg: "apple is a fruit"
 
     - name: if apple is not a fruit
-      when: y|false
+      when: not (y | false)
       ansbile.buintin.debug:
         msg: "apple is not a fruit"
