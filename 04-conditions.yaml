@@ -20,7 +20,7 @@
 - name: boolean conditions
   hosts: localhost
   connection: local
-  args:
+  vars:
     name: apple
     y: true
   tasks:
