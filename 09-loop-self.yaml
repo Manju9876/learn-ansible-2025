@@ -4,6 +4,7 @@
   vars:
     fruits: ["apple", 'banana', "mango" ]
   tasks:
-    debug:
+    - name: basic loop
+      ansible.builtin.debug:
       msg: "the fruit name is {{ item }}"
       loop: "{{ fruits }}"
