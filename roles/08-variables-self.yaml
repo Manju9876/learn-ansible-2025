@@ -1,0 +1,10 @@
+- name: variables calling from the playbook
+  hosts: localhost
+  connection: local
+  vars:
+    fruit: apple
+    price: 50
+  tasks:
+    - name: caling from the play book
+      ansible.builtin.debug:
+        msg: "this varibales called form the playbook, the {{ fruit }} price is {{ 50 }}"
