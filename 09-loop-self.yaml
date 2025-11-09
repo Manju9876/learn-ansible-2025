@@ -1,0 +1,9 @@
+- name: looping basics
+  hosts: localhost
+  connection: local
+  vars:
+    fruits: ["apple", 'banana', "mango" ]
+  tasks:
+    debug:
+      msg: "the fruit name is {{ item }}"
+      loop: "{{ fruits }}"
