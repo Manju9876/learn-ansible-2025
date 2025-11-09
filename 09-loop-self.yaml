@@ -6,5 +6,5 @@
   tasks:
     - name: basic loop
       ansible.builtin.debug:
-      msg: "the fruit name is {{ item }}"
+       msg: "the fruit name is {{ item }}"
       loop: "{{ fruits }}"
