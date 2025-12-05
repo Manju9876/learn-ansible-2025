@@ -1,0 +1,44 @@
+#- name: vault secret retrival
+#  hosts: localhost
+#  connection: local
+#  tasks:
+#    - name: vault for looping all secrets
+#      ansible.builtin.debug:
+#        msg:
+#    - ansible.builtin.debug:
+#              msg: "Secret '{{ item.key }}' has value '{{ item.value }}'"
+#              loop: "{{ my_secrets | dict2items }}"
+
+- name: Vault secret retrieval
+  hosts: localhost
+  connection: local
+  vars:
+    vault_addr: "http://44.192.72.161:8200"   # change this
+    secret_path: "infra/data/ssh"          # change this
+
+  tasks:
+
+    - name: Retrieve secrets from Vault
+      uri:
+        url: "{{ vault_addr }}/v1/{{ secret_path }}"
+        method: GET
+        headers:
+          X-Vault-Token: "{{ vault_token }}"
+        return_content: yes
+      register: vault_output
+
+    - name: Convert secrets to dict
+      set_fact:
+        my_secrets: "{{ vault_output.json.data.data }}"
+
+    - name: Write all keys and values to /tmp/keys.txt
+      lineinfile:
+        path: /tmp/keys.txt
+        line: "{{ item.key }} = {{ item.value }}"
+        create: yes
+      loop: "{{ my_secrets | dict2items }}"
+
+    - name: Print secrets on screen (optional)
+      debug:
+        msg: "Secret '{{ item.key }}' = '{{ item.value }}'"
+      loop: "{{ my_secrets | dict2items }}"
