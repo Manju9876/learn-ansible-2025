@@ -1,0 +1,35 @@
+#- name: vault looping secrets retrive
+#  hosts: localhost
+#  connection: local
+#  tasks:
+#    - name: get secrets to the variable
+#      ansible.builtin.set_fact:
+#        component_secrets: "{{ lookup('community.hashi_vault.hashi_vault', 'roboshop-dev/data/cart token={{ vault_token }} url=http://vault-internal.devopsbymanju.shop:8200') }}"
+#
+#    - name: write secrets to a file
+#      ansible.builtin.copy:
+#        dest: /tmp/secrets.txt
+#        content:
+
+- name: vault looping secrets retrieve
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: get secrets to the variable
+      ansible.builtin.set_fact:
+        component_secrets: >-
+          {{ lookup('community.hashi_vault.hashi_vault',
+          'roboshop-dev/data/cart
+          token={{ vault_token }}
+          url=http://vault-internal.devopsbymanju.shop:8200') }}
+
+    - name: write secrets to /tmp/secrets
+      ansible.builtin.copy:
+        dest: /tmp/secrets
+        content: |
+          {% for item in component_secrets | dict2items %}
+          Environment={{ item.key }}={{ item.value }}
+          {% endfor %}
+      
+      
+
