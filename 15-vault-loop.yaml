@@ -22,7 +22,7 @@
               'community.hashi_vault.hashi_vault',
               vault_path,
               token=vault_token,
-              url=vault_addr
+              url=http://vault-internal.devopsbymanju.shop:8200
           ) }}
 
     - name: write secrets to /tmp/secrets
