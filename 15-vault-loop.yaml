@@ -19,7 +19,7 @@
       ansible.builtin.set_fact:
         component_secrets: >-
           {{ lookup('community.hashi_vault.hashi_vault',
-          'roboshop-dev/data/cart
+          'roboshop-dev-secrets/data/cart
           token={{ vault_token }}
           url=http://vault-internal.devopsbymanju.shop:8200') }}
 
