@@ -18,10 +18,12 @@
     - name: get secrets to the variable
       ansible.builtin.set_fact:
         component_secrets: >-
-          {{ lookup('community.hashi_vault.hashi_vault',
-          'roboshop-dev-secrets/data/cart
-          token={{ vault_token }}
-          url=http://vault-internal.devopsbymanju.shop:8200') }}
+          {{ lookup(
+              'community.hashi_vault.hashi_vault',
+              vault_path,
+              token=vault_token,
+              url=vault_addr
+          ) }}
 
     - name: write secrets to /tmp/secrets
       ansible.builtin.copy:
