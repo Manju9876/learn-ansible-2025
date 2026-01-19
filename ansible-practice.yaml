@@ -1,6 +1,6 @@
 - name: load roles
   become: true
-  hosts: local
+  hosts: localhost
   connection: local
   roles:
     - demo
