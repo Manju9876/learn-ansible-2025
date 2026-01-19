@@ -19,10 +19,6 @@
   ansible.builtin.set_fact:
     vault_secrets: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-dev-secrets/data/frontend token={{ pass_token }} url=http://vault.devopsbymanju.shop:8200') }}"
 
-- name: Build secrets dict from list
-  ansible.builtin.set_fact:
-    secrets: "{{ secrets | default({}) | combine({ item: vault_secrets[item] }) }}"
-
 
 - name: print the secrets
   ansible.builtin.debug:
