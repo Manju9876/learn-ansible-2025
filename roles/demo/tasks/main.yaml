@@ -1,8 +1,20 @@
-- name: retrive the vault secrets
-#  hosts: localhost
-#  connection: local
-#  become: yes
-  tasks:
-    - name: read the password
-      ansible.builtin.debug:
-        msg: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=test/data/demo token={{ pass_token }} url=http://vault.devopsbymanju.shop:8200') }}"
+#- name: retrive the vault secrets
+##  hosts: localhost
+##  connection: local
+##  become: yes
+#  tasks:
+#    - name: read the password
+#      ansible.builtin.debug:
+#        msg: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=test/data/demo token={{ pass_token }} url=http://vault.devopsbymanju.shop:8200') }}"
+
+#- name: Load Nodejs
+#  ansible.builtin.include_role:
+#    name: common
+#    tasks_from: docker.yaml
+#  vars:
+#    app_port:80
+#
+
+- name: read the password
+  ansible.builtin.debug:
+  msg: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=test/data/demo token={{ pass_token }} url=http://vault.devopsbymanju.shop:8200') }}"
