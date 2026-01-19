@@ -1,6 +1,6 @@
 - name: retrive the vault secrets
-  hosts: localhost
-  connection: local
+#  hosts: localhost
+#  connection: local
   become: yes
   tasks:
     - name: read the password
