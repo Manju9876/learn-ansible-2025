@@ -22,7 +22,6 @@
 - name: Build secrets dict from list
   ansible.builtin.set_fact:
     secrets: "{{ secrets | default({}) | combine({ item: vault_secrets[item] }) }}"
-  loop: "{{ secret_keys }}"
 
 
 - name: print the secrets
