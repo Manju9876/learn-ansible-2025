@@ -1,5 +1,6 @@
-secrets:
+secret_keys:
   - CART_HOST
+  - CATALOGUE_HOST
 
 docker_secrets:
   CATALOGUE_HOST_docker: "{{ vault_secrets.CATALOGUE_HOST }}"
