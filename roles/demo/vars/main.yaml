@@ -1,6 +1,7 @@
 secret_keys:
-  - CART_HOST
-  - CATALOGUE_HOST
+  - APP_GIT_URL
+  - CART_ENDPOINT
+  - SCHEMA_FILE
 
 docker_secrets:
-  CATALOGUE_HOST_docker: "{{ vault_secrets.CATALOGUE_HOST }}"
+  SCHEMA_FILE: "{{ vault_secrets.SCHEMA_FILE.app_user }}"
